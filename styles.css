@@ -1,42 +1,122 @@
 body {
-    text-align: center;
+    margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    text-align: center;
 }
 
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+}
+
+/* Word game board */
 #board {
-    display: grid;
-    grid-template-rows: repeat(6, 60px);
-    gap: 5px;
-    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: fit-content;
     margin: 20px auto;
 }
 
 .row {
-    display: grid;
-    grid-template-columns: repeat(5, 60px);
-    gap: 5px;
+    display: flex;
+    gap: 6px;
 }
 
 .tile {
+    width: 55px;
+    height: 55px;
     border: 2px solid #ccc;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
+    background: white;
 }
 
-.correct {
-    background-color: green;
-    color: white;
+.active-row .tile {
+    border-color: black;
 }
 
-.present {
-    background-color: goldenrod;
-    color: white;
+.cursor {
+    border-right: 3px solid black;
+    animation: blink 1s step-end infinite;
 }
 
-.absent {
-    background-color: gray;
-    color: white;
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.correct { background: #6aaa64; color: white; }
+.present { background: #c9b458; color: white; }
+.absent  { background: #787c7e; color: white; }
+
+#keyboard {
+    margin-top: 20px;
+}
+
+.key-row {
+    display: flex;
+    justify-content: center;
+    margin: 4px;
+    gap: 4px;
+}
+
+.key {
+    padding: 10px 12px;
+    background: #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+.key:hover {
+    background: #bbb;
 }
